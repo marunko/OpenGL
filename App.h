@@ -1,1 +1,9 @@
 #pragma once
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#include <iostream>
+#include "App.h"
+#include "Figures.h"
+#include <chrono>
+#include <thread>
+#include "Shader.h"

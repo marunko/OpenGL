@@ -1,4 +1,8 @@
 #include "Figures.h"
+ 
+ 
+#define PI 3.14159265
+
 void paintTriangle()
 {
 
@@ -37,9 +41,41 @@ void paintTriangle()
 }
 void paintSquare()
 {
-
+   
 }
 void paintCircle()
 {
 
+}
+
+void getCoordinates()
+{
+    float d = (45 * PI) / 180;
+    std::cout <<d << "\n";
+    std::cout << (2.82 * cos(d)) << "\n";
+    std::cout << (2.82 * sin(d)) << "\n";
+    std::cout <<(2.82*cos(d)) - (2.82*sin(d)) << "\n";
+    std::cout <<(2.82*sin(d)) + (2.82*cos(d)) << "\n";
+
+}
+
+void rotateTriangle(float x1, float y1, float x2, float y2, int angle)
+{
+    float d = (angle * PI) / 180;
+
+    glBegin(GL_TRIANGLES);
+
+    glColor3f(0.1, 0.2, 0.3);
+    glVertex3f(0, 0, 0);
+    glVertex3f(x1, y1, 0);
+    glVertex3f(x2, y2, 0);
+
+    int xx1 = x1-(x1*2), xx2 = x2 - (x2 * 2), yy1 = y1 - (y1 * 2), yy2 = y2 - (y2 * 2);
+    glColor3f(0.2, 0.2, 0.2);
+    glVertex3f(0.0,0.0, 0);
+    glVertex3f(xx1, yy1, 0);
+    glVertex3f(xx2, yy2, 0);
+    glEnd();
+
+    glFlush();
 }

@@ -1,9 +1,11 @@
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <iostream>
+ 
 #include "App.h"
-#include "Figures.h"
-
+ 
+void updateInput(GLFWwindow* window) {
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        glfwSetWindowShouldClose(window, GLFW_TRUE);
+    }
+}
 int main(void)
 {
     GLFWwindow* window;
@@ -20,13 +22,28 @@ int main(void)
         glfwTerminate();
         return -1;
     } 
-
+ 
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
     if (glewInit() != GLEW_OK) {
         std::cout << "Smth wrng!";
     }
+    // OPTIONS 
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+    glFrontFace(GL_CCW);
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+    
+    // Shrader init 
+    GLuint core_program;
+    loadShaders(core_program);
     /* Loop until the user closes the window */
     float graphArray[] = {
         -1.0f, 0.0f, 0.0f,
@@ -35,29 +52,29 @@ int main(void)
     };
     while (!glfwWindowShouldClose(window))
     {
+        // update input 
+        glfwPollEvents();
+
+        // update 
+        updateInput(window);
+
         /* Render here */
+
         glClearColor(1, 1, 0, 0);
         glClear(GL_COLOR_BUFFER_BIT);
-
- /*
-        glBegin(GL_TRIANGLES);
-
-        glColor3f(0.1, 0.2, 0.3);
-        glVertex3f(0, 0, 0);
-        glVertex3f(1, 0, 0);
-        glVertex3f(0, 1, 0);
-
-        glEnd();
-
-        glFlush(); */
-        /* Swap front and back buffers */
-        paintTriangle();
+        
+ 
+ 
+         
         glfwSwapBuffers(window);
 
         /* Poll for and process events */
         glfwPollEvents();
     }
-
+    glfwDestroyWindow(window);
     glfwTerminate();
+
+    glDeleteProgram(core_program);
+
     return 0;
 }

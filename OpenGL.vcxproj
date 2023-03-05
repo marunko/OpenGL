@@ -153,14 +153,21 @@
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Figures.cpp" />
+    <ClCompile Include="Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
     <ClInclude Include="Figures.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Shader.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OpenGL.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shrader1.bin" />
+    <None Include="Shrader\fragment_shader.glsl" />
+    <None Include="Shrader\shrader.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

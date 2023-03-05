@@ -22,6 +22,9 @@
     <Filter Include="src\Animation">
       <UniqueIdentifier>{9e96a5be-cfce-4db0-a7b4-4368579575ec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Shaders">
+      <UniqueIdentifier>{7e3df472-a134-46fb-8edd-0d4f6738a720}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp">
@@ -29,6 +32,9 @@
     </ClCompile>
     <ClCompile Include="Figures.cpp">
       <Filter>src\Simple</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>src\Shaders</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -41,10 +47,24 @@
     <ClInclude Include="Figures.h">
       <Filter>src\Simple</Filter>
     </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>src\Shaders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OpenGL.rc">
       <Filter>Файлы ресурсов</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shrader\shrader.glsl">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="shrader1.bin">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="Shrader\fragment_shader.glsl">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
   </ItemGroup>
 </Project>
